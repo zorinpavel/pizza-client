@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Fade, Grid, LinearProgress, Badge, IconButton, Menu, MenuItem } from '@material-ui/core';
@@ -25,7 +25,7 @@ class Header extends Component {
     };
 
     render() {
-        const { login } = this.props.user || {};
+        const { name } = this.props.user || {};
 
         return (
             <header>
@@ -42,7 +42,7 @@ class Header extends Component {
                             </Badge>
                         </Grid>
                         <Grid item>
-                            <b>{login}</b>
+                            <b>{name}</b>
                             <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
                                 <MenuIcon />
                             </IconButton>
@@ -58,18 +58,21 @@ class Header extends Component {
                                     component={Link}
                                     to="/">Dashboard</MenuItem>
                                 {
-                                    login ?
-                                        <Fragment>
-                                            <MenuItem
-                                                onClick={this.handleClose}
-                                                component={Link}
-                                                to="/my">My account</MenuItem>
-                                            <MenuItem
-                                                onClick={this.handleClose}
-                                                component={Link}
-                                                to="/auth/logout">Logout</MenuItem>
-                                        </Fragment>
-                                        :
+                                    name &&
+                                    <MenuItem
+                                        onClick={this.handleClose}
+                                        component={Link}
+                                        to="/my">My account</MenuItem>
+                                }
+                                {
+                                    name &&
+                                    <MenuItem
+                                        onClick={this.handleClose}
+                                        component={Link}
+                                        to="/auth/logout">Logout</MenuItem>
+                                }
+                                {
+                                    !name &&
                                         <MenuItem
                                             onClick={this.handleClose}
                                             component={Link}

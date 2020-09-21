@@ -1,8 +1,7 @@
 import React from 'react';
+import MiddleContainer from 'components/Container';
 
 
-export default () => {
-    return (
-        <h2>My</h2>
-    );
-};
+export default () => (
+    <MiddleContainer header="My profile" />
+);

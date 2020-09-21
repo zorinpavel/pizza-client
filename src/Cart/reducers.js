@@ -23,7 +23,7 @@ export default (state = initialState, { type, payload }) => {
 
             return cart;
         case 'CLEAR_CART':
-            localStorage.removeItem('cartData');
+            localStorage.removeItem('authData');
 
             return initialState;
         default:

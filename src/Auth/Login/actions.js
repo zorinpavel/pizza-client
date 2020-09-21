@@ -2,14 +2,14 @@ import { fetch } from 'helpers';
 import settings from 'settings';
 
 
-const signUp = (userData) => (dispatch) => {
+const login = (userData) => (dispatch) => {
     dispatch({
         type: 'APP_SET_LOADING',
         payload: true,
     });
 
     return fetch({
-        url: settings.API_URL + settings.SIGNUP_PATH,
+        url: settings.API_URL + settings.LOGIN_PATH,
         method: 'POST',
         params: userData
     })
@@ -38,4 +38,4 @@ const signUp = (userData) => (dispatch) => {
 };
 
 
-export default { signUp };
+export default { login };

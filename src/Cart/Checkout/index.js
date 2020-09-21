@@ -8,9 +8,9 @@ import actions from './actions';
 
 class Checkout extends Component {
     state = {
-        name: '',
-        email: '',
-        address: '',
+        name: this.props.name || '',
+        email: this.props.email || '',
+        address: this.props.address || '',
         success: false
     }
 
@@ -52,7 +52,7 @@ class Checkout extends Component {
                     ) : (
                         <form onSubmit={this.handleSubmit}>
                             <Grid container alignItems="flex-start" spacing={5}>
-                                <Grid item xs sm={6}>
+                                <Grid item xs={12} sm={6}>
                                     <TextField
                                         id="name"
                                         name="name"
@@ -60,10 +60,11 @@ class Checkout extends Component {
                                         variant="outlined"
                                         fullWidth
                                         required
-                                        defaultValue=""
+                                        defaultValue="1"
+                                        value={this.state.name}
                                         onChange={this.handleChange} />
                                 </Grid>
-                                <Grid item xs sm={6}>
+                                <Grid item xs={12} sm={6}>
                                     <TextField
                                         id="email"
                                         name="email"
@@ -75,7 +76,7 @@ class Checkout extends Component {
                                         defaultValue=""
                                         onChange={this.handleChange} />
                                 </Grid>
-                                <Grid item xs sm={12}>
+                                <Grid item xs={12} sm={12}>
                                     <TextField
                                         multiline
                                         rows={4}
@@ -105,6 +106,7 @@ class Checkout extends Component {
 
 export default connect(
     state => ({
+        user: state.app.user,
         cart: state.cart
     }),
     {
