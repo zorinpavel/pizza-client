@@ -21,7 +21,7 @@ class Dashboard extends Component {
                     {
                         this.props.menu.map((pizza, index) => {
                             return (
-                                <Grid item xs={12} sm={6} md={3} key={index}>
+                                <Grid item md={4} sm={6} xs={12} key={index}>
                                     <Pizza {...pizza} />
                                 </Grid>
                             );
