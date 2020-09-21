@@ -6,5 +6,6 @@ node_modules
 !.env.test
 
 /public
+!/public/images
 
 /tests/__snapshots__/
