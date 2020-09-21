@@ -1,0 +1,21 @@
+.item-container {
+    border-radius: $space;
+    border: 1px dashed $color-border;
+    @include padding(2, 2, 2, 2);
+
+    .image {
+        width: 10em;
+        object-fit: contain;
+    }
+}
+
+.checkout {
+
+    .checkout__row {
+        margin-top: 1em;
+
+        &:not(:last-child) {
+            border-bottom: 1px dashed $color-border;
+        }
+    }
+}

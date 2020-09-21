@@ -1,0 +1,14 @@
+@import 'settings';
+
+@import 'fonts';
+@import 'media';
+@import 'common';
+
+:root {
+    --border-radius: 4px;
+}
+
+:global(#root) {
+    height: 100%;
+    width: 100%;
+}

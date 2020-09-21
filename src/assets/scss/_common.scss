@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+HTML {
+    height: 100%;
+}
+
+BODY {
+    color: $color-base;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    height: 100%;
+}
+
+:focus { outline: 0; }
+IMG { border: 0; }
+
+A:not([role="button"]) {
+    color: $color-base;
+    text-decoration: none;
+    transition: $transition-base;
+    &:hover,
+    &:focus {
+        color: $color-theme-secondary;
+    }
+    &.color {
+        color: $color-theme-secondary;
+        &:hover {
+            color: $color-base;
+        }
+    }
+    &.selected {
+        color: $color-theme-secondary;
+    }
+    & > SVG {
+        fill: currentcolor;
+    }
+}
+
+UL[role="navigation"] {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+
+    LI {
+    }
+}

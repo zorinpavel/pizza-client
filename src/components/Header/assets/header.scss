@@ -1,0 +1,15 @@
+HEADER {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid $color-border;
+    box-shadow: 0 0 25px 2px rgba(0, 0, 0, .1);
+    @include marginBottom(4);
+
+    .wrapper {
+        @include paddingTop(2);
+        @include paddingBottom(2);
+    }
+}

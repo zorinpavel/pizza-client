@@ -1,0 +1,12 @@
+%button {
+    color: #ffffff !important;
+}
+
+.button__facebook {
+    background-color: $color-social-facebook !important;
+    @extend %button;
+}
+.button__vk {
+    background-color: $color-social-vk !important;
+    @extend %button;
+}

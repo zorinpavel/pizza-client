@@ -1,0 +1,30 @@
+.wrapper {
+    --line-height: 1.6;
+
+    @include padding(3, 3, 3, 3);
+    border: 1px solid $color-border;
+    border-radius: $space;
+    height: 100%;
+
+    .media {
+        height: 10rem;
+    }
+
+    .header {
+        min-height: calc(var(--line-height) * 2em);
+        max-height: calc(var(--line-height) * 2em);
+        overflow: hidden;
+    }
+
+    .description {
+        min-height: calc(var(--line-height) * 3em);
+        max-height: calc(var(--line-height) * 3em);
+        overflow: hidden;
+        color: $color-base-light;
+    }
+
+    .price {
+        font-size: 120%;
+        display: block;
+    }
+}

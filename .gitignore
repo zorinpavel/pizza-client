@@ -1,0 +1,10 @@
+.idea
+node_modules
+
+.env
+.env.*
+!.env.test
+
+/public
+
+/tests/__snapshots__/

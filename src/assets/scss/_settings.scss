@@ -1,0 +1,27 @@
+$space: 6px;
+
+$color-base: rgb(51, 51, 51);
+$color-base-light: lighten($color-base, 30%);
+$color-border: lighten($color-base, 60%);
+
+$color-theme-primary: #f1c632;
+$color-theme-secondary: #647aae;
+
+$color-green: #8CC152;
+$color-blue: #4A89DC;
+
+$color-social-vk: rgb(76, 117, 163);
+$color-social-facebook: rgb(59, 89, 153);
+$color-social-twitter: rgb(85, 172, 238);
+$color-social-google: rgb(221, 75, 57);
+$color-social-ok: rgb(244, 115, 28);
+$color-social-yandex: rgb(255, 214, 51);
+$color-social-youtube: rgb(255, 0, 0);
+$color-social-instagram: rgb(228, 64, 95);
+$color-social-nnru: rgb(0, 95, 184);
+
+$transition-base: all 0.2s ease-out 0s;
+$transition-slow: all 0.4s ease-out 0s;
+
+$input-background-base: rgb(250, 250, 250);
+$input-background-dark: darken(rgb(250, 250, 250), 5%);

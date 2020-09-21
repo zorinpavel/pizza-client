@@ -1,0 +1,29 @@
+.layout-middle {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    min-height: 80%;
+    justify-content: center;
+
+    .layout-middle__wrapper {
+        width: 80%;
+        max-width: 80rem;
+
+        @include media(phone) {
+            width: 95%;
+        }
+
+        .layout-middle__header {
+            margin-bottom: 2rem;
+        }
+
+        H1 {
+
+        }
+
+        .layout-middle__header-caption {
+            font-family: 'RobotoLight', Helvetica, Arial, sans-serif;
+            color: $color-base-light;
+        }
+    }
+}
