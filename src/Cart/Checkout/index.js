@@ -2,16 +2,17 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Grid, Button, TextField } from '@material-ui/core';
+import { Alert, AlertTitle } from '@material-ui/lab';
 import MiddleContainer from 'components/Container';
 import actions from './actions';
+
+import css from './assets/checkout.scss';
 
 
 class Checkout extends Component {
     state = {
-        name: this.props.name || '',
-        email: this.props.email || '',
-        address: this.props.address || '',
-        success: false
+        success: false,
+        error: false
     }
 
     constructor(props) {
@@ -23,20 +24,35 @@ class Checkout extends Component {
 
     handleChange = (e) => {
         e.preventDefault();
+        const user = { ...this.state.user, ...this.props.user };
 
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ user: { ...user, [e.target.name]: e.target.value } });
     }
 
     handleSubmit = async (e) => {
         e.preventDefault();
+        const user = { ...this.state.user, ...this.props.user };
+        const { order, error } = await this.props.setOrder(user, this.props.cart);
 
-        await this.props.setOrder(this.state, this.props.cart);
-        this.setState({ success: true });
+        if(order)
+            this.setState({ success: true });
+        else
+            this.setState({ error });
     }
 
     render() {
+        const { name, email, address } = this.state.user || this.props.user || {};
+
         return (
             <MiddleContainer header="Введите данные" caption="Укажите адрес и e-mail">
+                {
+                    this.state.error &&
+                    <Alert severity="error" className={css.errorContainer}>
+                        <AlertTitle>Error</AlertTitle>
+                        {this.state.error}
+                    </Alert>
+                }
+
                 {this.state.success ?
                     (
                         <Fragment>
@@ -60,8 +76,7 @@ class Checkout extends Component {
                                         variant="outlined"
                                         fullWidth
                                         required
-                                        defaultValue="1"
-                                        value={this.state.name}
+                                        defaultValue={name}
                                         onChange={this.handleChange} />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -73,7 +88,7 @@ class Checkout extends Component {
                                         fullWidth
                                         required
                                         type="email"
-                                        defaultValue=""
+                                        defaultValue={email}
                                         onChange={this.handleChange} />
                                 </Grid>
                                 <Grid item xs={12} sm={12}>
@@ -85,7 +100,7 @@ class Checkout extends Component {
                                         label="Address"
                                         variant="outlined"
                                         fullWidth
-                                        defaultValue=""
+                                        defaultValue={address}
                                         onChange={this.handleChange} />
                                 </Grid>
                                 <Grid item xs>
@@ -106,7 +121,7 @@ class Checkout extends Component {
 
 export default connect(
     state => ({
-        user: state.app.user,
+        user: state.auth.user,
         cart: state.cart
     }),
     {

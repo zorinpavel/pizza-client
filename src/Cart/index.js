@@ -10,6 +10,10 @@ export { default as reducers } from './reducers';
 class Cart extends Component {
     constructor(props) {
         super(props);
+
+        this.props.dispatch({
+            type: 'SET_CART'
+        });
     }
 
     render() {
@@ -20,7 +24,7 @@ class Cart extends Component {
                         <Grid item md={6} key={i}>
                             <Grid container justify="flex-start" alignItems="stretch" className={css.itemContainer}>
                                 <Grid item>
-                                    <img src={pizza.image} className={css.image} />
+                                    <img src={pizza.image} className={css.image} alt={pizza.name}/>
                                 </Grid>
                                 <Grid item xs>
                                     <h3>{pizza.name}</h3>
