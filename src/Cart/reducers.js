@@ -1,7 +1,7 @@
 import { getCartData } from 'helpers';
 
 
-const initialState = getCartData().cart || { items: [], deliveryCost: 120, totalCost: 0 };
+const initialState = getCartData() || { items: [], deliveryCost: 120, totalCost: 0 };
 
 export default (state = initialState, { type, payload }) => {
     switch(type) {
@@ -23,7 +23,7 @@ export default (state = initialState, { type, payload }) => {
 
             return cart;
         case 'CLEAR_CART':
-            localStorage.removeItem('authData');
+            localStorage.removeItem('cartData');
 
             return initialState;
         default:

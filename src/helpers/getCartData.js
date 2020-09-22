@@ -1,8 +1,6 @@
 export default () => {
     try {
-        let cartData = JSON.parse(localStorage.getItem('cartData'));
-
-        return cartData || {};
+        return JSON.parse(localStorage.getItem('cartData'));
     } catch(e) {
         console.log(e);
         localStorage.removeItem('cartData');

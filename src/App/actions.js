@@ -13,7 +13,7 @@ const getApplicationData = () => (dispatch) => {
         payload: true,
     });
 
-    const authToken = getAuthData().authToken;
+    const authToken = getAuthData();
 
     if(authToken) {
         return fetch({

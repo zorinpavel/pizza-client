@@ -19,7 +19,7 @@ export default options => {
     if(options.authToken)
         headers.Authorization = 'Bearer ' + options.authToken;
     else if(options.authToken !== false)
-        headers.Authorization = 'Bearer ' + getAuthData().authToken;
+        headers.Authorization = 'Bearer ' + getAuthData();
 
     if(options.headers) {
         headers = {

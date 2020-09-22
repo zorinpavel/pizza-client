@@ -3,7 +3,7 @@ export default (state = {}, { type, payload }) => {
         case 'LOGIN':
             const { user, authToken } = payload;
 
-            localStorage.setItem('authData', JSON.stringify({ authToken: payload.authToken }));
+            localStorage.setItem('authToken', authToken);
 
             return {
                 ...state,
@@ -11,7 +11,7 @@ export default (state = {}, { type, payload }) => {
                 authToken,
             };
         case 'LOGOUT':
-            localStorage.setItem('authData', JSON.stringify({ authToken: payload.authToken }));
+            localStorage.removeItem('authToken');
 
             return {};
         case 'AUTH_SET_LOADING':
