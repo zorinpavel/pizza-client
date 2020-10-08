@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Button } from '@material-ui/core';
+import Price from 'components/Price';
 import css from './assets/cart.scss';
 
 export { default as reducers } from './reducers';
@@ -31,7 +32,7 @@ class Cart extends Component {
                                     <p>{pizza.description}</p>
                                 </Grid>
                                 <Grid item>
-                                    {pizza.price}
+                                    <Price value={pizza.price} />
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -40,11 +41,15 @@ class Cart extends Component {
                 <div className={css.checkout}>
                     <Grid container spacing={3} className={css.checkoutRow}>
                         <Grid item xs>Доставка</Grid>
-                        <Grid item>{this.props.cart.deliveryCost.toFixed(2)}</Grid>
+                        <Grid item>
+                            <Price value={(this.props.cart.deliveryCost.toFixed(2))} />
+                        </Grid>
                     </Grid>
                     <Grid container spacing={3} className={css.checkoutRow}>
                         <Grid item xs>Total cost</Grid>
-                        <Grid item>{this.props.cart.totalCost.toFixed(2)}</Grid>
+                        <Grid item>
+                            <Price value={this.props.cart.totalCost.toFixed(2)} />
+                        </Grid>
                     </Grid>
                     <Grid container spacing={3} className={css.checkoutRow}>
                         <Grid item xs>

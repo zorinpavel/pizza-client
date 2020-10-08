@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardContent, CardActions, CardMedia, Button } from '@material-ui/core';
+import Price from 'components/Price';
 
 import css from './assets/pizza.scss';
 
@@ -28,7 +29,7 @@ class Pizza extends Component {
                 <CardContent>
                     <h2 className={css.header}>{this.props.name}</h2>
                     <p className={css.description}>{this.props.description}</p>
-                    <span className={css.price}>{this.props.price}</span>
+                    <span className={css.price}><Price value={this.props.price} /></span>
                 </CardContent>
                 <CardActions>
                     <Button
@@ -41,7 +42,7 @@ class Pizza extends Component {
             </Card>
         );
     }
-};
+}
 
 export default connect(
     state => ({

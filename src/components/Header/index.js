@@ -120,6 +120,6 @@ export default connect(
         loading: state.app.loading,
         user: state.auth.user,
         cart: state.cart.items.length,
-        currency: state.app.currency || 'RUB'
+        currency: state.app.currency
     }),
 )(Header);

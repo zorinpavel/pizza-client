@@ -1,4 +1,4 @@
-export default (state = {}, { type, payload }) => {
+export default (state = { currency: 'RUB' }, { type, payload }) => {
     switch(type) {
         case 'APP_SET_LOADING':
             return {
