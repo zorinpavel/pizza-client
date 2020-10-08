@@ -12,4 +12,8 @@ HEADER {
         @include paddingTop(2);
         @include paddingBottom(2);
     }
+
+    .currency-control {
+        min-width: 100px;
+    }
 }
